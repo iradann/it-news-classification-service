@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NewsClassification | Классификатор новостей</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <h1>Классифкатор новостей</h1>
+            <p>
+                Введите текст в форму для определения его класса
+            </p>
+            <form action="#" th:action="@{/classification}" th:object="${classificationForm}" method="post">
+                <div>
+                    <textarea type="text" th:field="*{text}" style="height: 600px; width: 400px;"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Получить класс"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
