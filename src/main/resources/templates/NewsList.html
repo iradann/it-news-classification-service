@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NewsClassification | Классификатор новостей</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <a href="/classification">Классификатор</a> | <a href="/news/list">Новости</a>
+        </div>
+        <div>
+            <h3>Категории новостей</h3>
+            <div>
+                <span th:each="category : ${categories}">
+                    <a th:href="@{${category.url}}" th:text="${category.name}"></a> |
+                </span>
+            </div>
+            <h1 th:text="${selectedCategory}"></h1>
+            <span th:text="'Количество новостей: ' + ${newsCount}"></span>
+            <li th:each="news : ${newsList}">
+                <a th:href="@{'/news/id/' + ${news.id}}" th:text="${news.title}"></a>
+            </li>
+        </div>
+    </body>
+</html>

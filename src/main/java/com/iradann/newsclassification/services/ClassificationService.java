@@ -17,12 +17,15 @@ public class ClassificationService {
     private Classifier classifier;
     private HashMap<String, Integer> vectorWords;
     private ArrayList<String> filteredWords;
+    private SQLiteDatabaseDriver databaseDriver;
     
     public ClassificationService() throws Exception {
+        databaseDriver = new SQLiteDatabaseDriver();
+        
         classifier = (Classifier) SerializationHelper.read(new FileInputStream("Classifier.model"));
         
-        vectorWords = SQLiteDatabaseDriver.getVectorWord();
-        filteredWords = SQLiteDatabaseDriver.getFilteredWords();
+        vectorWords = databaseDriver.getVectorWord();
+        filteredWords = databaseDriver.getFilteredWords();
     }
     
     public TextClass getClass(String text) throws Exception {

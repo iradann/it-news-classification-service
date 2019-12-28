@@ -29,4 +29,29 @@ public enum TextClass {
         }
         return null;
     }
+    
+    public static String translateTextClassToRus(TextClass textClass) {
+        switch (textClass) {
+            case BUSINESS:
+                return "Бизнес и технологии";
+            case COMMON_NEWS:
+                return "Общие новости";
+            case DESIGN:
+                return "Дизайн";
+            case FINANCE:
+                return "Финансы";
+            case MARKETING:
+                return "Маркетинг";
+            case QUESTION_ANSWER:
+                return "Вопрос - ответ";
+            case SOCIETY:
+                return "Соц сети и сервисы";
+            case TRANSPORT:
+                return "Транспорт";
+            case WORK_SEARCHING:
+                return "Поиск работы";
+            default:
+                return "";
+        }
+    }
 }

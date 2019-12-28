@@ -28,32 +28,7 @@ public class ClassificationController {
     @RequestMapping(value = "/classification", method = RequestMethod.POST)
     public String classificationResult(@ModelAttribute ClassificationForm classificatorForm, Model model) throws Exception {
         TextClass textClass = classificationService.getClass(classificatorForm.getText());
-        model.addAttribute("textClass", translateTextClassToRus(textClass));
+        model.addAttribute("textClass", TextClass.translateTextClassToRus(textClass));
         return "ClassificationResult";
-    }
-    
-    private String translateTextClassToRus(TextClass textClass) {
-        switch (textClass) {
-            case BUSINESS:
-                return "Бизнес и технологии";
-            case COMMON_NEWS:
-                return "Общие новости";
-            case DESIGN:
-                return "Дизайн";
-            case FINANCE:
-                return "Финансы";
-            case MARKETING:
-                return "Маркетинг";
-            case QUESTION_ANSWER:
-                return "Вопрос - ответ";
-            case SOCIETY:
-                return "Соц сети и сервисы";
-            case TRANSPORT:
-                return "Транспорт";
-            case WORK_SEARCHING:
-                return "Поиск работы";
-            default:
-                return "";
-        }
     }
 }
